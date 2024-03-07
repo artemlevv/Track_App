@@ -1,0 +1,43 @@
+//
+//  ViewController.swift
+//  ExpenseTrackApp
+//
+//  Created by ARTEM on 05.03.2024.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    private lazy var topView: TopView = {
+        let view = TopView(addBalanceAction: { [weak self] in
+            print("addBalance")
+        }, addTransactionAction: { [weak self] in
+            print("add Transaction")
+        })
+        return view
+    }()
+    private let addTransactionButton = UIButton()
+    private let transactionsTableView = UITableView()
+    private let bitcoinRateLabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
+    func setup(){
+        self.view.backgroundColor = .white
+        self.view.addSubview(topView)
+        
+        NSLayoutConstraint.activate([
+            topView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            topView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            topView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+    }
+    
+
+
+}
+
