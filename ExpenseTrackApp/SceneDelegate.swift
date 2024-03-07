@@ -51,7 +51,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print("okay")
         self.bitcoinViewModel?.getBitcoinRate()
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
